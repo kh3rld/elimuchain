@@ -1,55 +1,146 @@
-# ELIMUCHAIN
+# ElimuChain - Secure Academic Credential Verification
 
-ElimuChain is a blockchain-based platform that aims to solve the pervasive issue of academic credential fraud and inefficiencies in the verification process within Kenya's education system. Currently, there's a significant problem with counterfeit degrees and certificates, which undermines the credibility of educational qualifications, affects employment opportunities, and can compromise public safety. Additionally, the traditional manual or semi-digital verification methods are time-consuming, costly, and prone to errors, creating barriers for both educational institutions and potential employers. ElimuChain seeks to address these challenges by providing a secure, transparent, and efficient blockchain-based platform for issuing and verifying academic credentials, thereby ensuring the authenticity of qualifications, reducing administrative burdens, and enhancing the trust and integrity of Kenya's educational credentials on a global scale.
+Welcome to **ElimuChain**!
 
-## Key Features
+ElimuChain is an innovative platform aimed at transforming academic credential verification in Kenya. By harnessing the power of both the **Lisk blockchain** for scalable sidechain functionality and **Solidity** for smart contract execution on the Ethereum Virtual Machine (EVM), we are dedicated to combating educational fraud, streamlining verification processes, and fostering trust in academic qualifications.
 
-### 1. **Immutable Academic Records**
-- Certificates are issued as unchangeable records on the blockchain, eliminating the possibility of fraud or counterfeit credentials.
-- Each certificate has a unique digital signature for guaranteed authenticity.
+## Project Overview
 
-### 2. **Decentralized Verification**
-- Enables instant verification of credentials by anyone with permission, using a unique identifier.
-- Reduces verification time and administrative workload for institutions and employers.
+**Purpose**: ElimuChain provides a secure, transparent, and immutable system for issuing, managing, and verifying academic credentials. By integrating blockchain technology, we ensure the authenticity of educational certificates, reducing fraud and enhancing verification efficiency for educational institutions, students, and employers.
 
-### 3. **Student Privacy and Data Control**
-- Students retain full control over their academic records.
-- Private keys allow students to decide who can access their credentials, ensuring compliance with data protection regulations.
+**Technology Stack**:
 
-### 4. **Global Accessibility**
-- Credentials can be verified worldwide, increasing opportunities for Kenyan graduates in global education and employment markets.
+- **Front-end**: TBD (e.g., React, Vue.js)
+- **Backend**: Solidity (Smart Contracts) on Ethereum/Lisk's EVM
+- **Blockchain**: Lisk for sidechain scalability; Ethereum for smart contract functionality
 
-### 5. **Integration with Existing Systems**
-- ElimuChain integrates seamlessly with educational management systems like NEMIS.
-- Ensures institutions can adopt the platform without disrupting current workflows.
+**Target Audience**:
 
-### 6. **Transparency and Trust**
-- All transactions (e.g., issuance and verification) are logged transparently on the blockchain.
-- Builds trust among students, institutions, and employers.
+- Educational Institutions (Universities, Colleges, Schools)
+- Students and Graduates
+- Employers
+- Government Bodies
+- International Educational Partners
 
-### 7. **Scalability**
-- Designed to handle a large volume of credentials from numerous institutions, ensuring reliability and performance as the system grows.
+## Functionality
 
-## How It Works
+ElimuChain offers key functionalities:
 
-1. **Issuance**
-   - Educational institutions issue certificates via ElimuChain.
-   - A smart contract generates a unique, tamper-proof record on the blockchain.
+- **Credential Issuance**: Institutions can issue digital certificates via Solidity smart contracts, recorded on the blockchain.
+- **Verification**: Employers or authorized parties can verify credentials instantly using smart contract functions with unique certificate IDs.
+- **Data Privacy**: Users maintain control over their data through blockchain's cryptographic methods.
+- **Interoperability**: Designed for seamless integration with existing educational systems.
 
-2. **Verification**
-   - Employers or institutions input a certificate's unique identifier on the ElimuChain platform.
-   - The blockchain verifies the credential instantly and confirms its authenticity.
+## Unique Features
 
-3. **Data Access**
-   - Students use private keys to grant or restrict access to their academic records.
+- **Hybrid Blockchain Approach**: Combines Lisk's scalability with Ethereum's Solidity for robust and secure backend operations.
+- **User Empowerment**: Students have direct control over their educational data, managing access permissions through smart contracts.
+- **Cultural Adaptation**: Specifically tailored to meet the needs of the Kenyan educational context.
+- **Anti-Fraud Mechanism**: The immutable nature of blockchain ensures the integrity of issued credentials.
 
-4. **Updates and Revocations**
-   - If needed, institutions can update or revoke certificates. The blockchain maintains a transparent history of changes.
+## Installation
 
-## Technology Stack
-- **Blockchain:** Ethereum (or other suitable blockchain platforms)
-- **Smart Contracts:** Solidity for automation of credential issuance and verification
-- **Frontend:** React.js for the user interface
-- **Backend:** Node.js for API and server-side logic
-- **Database:** IPFS for decentralized storage of supporting documents
+### Prerequisites:
 
+- Node.js (version 14 or higher)
+- Lisk SDK (version 5.x)
+- Truffle Suite for Solidity development
+- Git
+- An Ethereum-compatible development environment (e.g., Ganache for local testing)
+
+### Steps:
+
+1. **Clone the Repository**:
+
+   ```bash
+   git clone https://github.com/Adamur-Tribe/elimuchain
+   cd elimuchain
+   ```
+
+2. **Install Node Dependencies**:
+
+   ```bash
+   npm install
+   ```
+
+3. **Install Solidity Dependencies**:
+
+   - Ensure Truffle is installed globally:
+
+   ```bash
+   npm install -g truffle
+   ```
+
+   - Install project-specific Solidity dependencies:
+
+   ```bash
+   truffle compile
+   ```
+
+4. **Configure Lisk Node & Ethereum Environment**:
+
+   - Edit `config.json` for Lisk node settings.
+   - Set up your local Ethereum network or use an existing testnet.
+
+5. **Start the Node**:
+   ```bash
+   npm run start
+   ```
+
+For development mode:
+
+```bash
+npm run dev
+```
+
+## Usage
+
+### For Educational Institutions:
+
+Deploy and interact with the `CertificateIssuer` contract:
+
+```solidity
+contract CertificateIssuer {
+    function issueCertificate(address student, string memory course, string memory institution) public;
+    // Additional functions...
+}
+```
+
+### For Employers or Verifiers:
+
+Verify credentials using the `CertificateVerifier` contract:
+
+```solidity
+contract CertificateVerifier {
+    function verifyCertificate(uint certificateId) public view returns (bool);
+}
+```
+
+### For Students:
+
+Access your certificates through the frontend or directly interact with contracts.
+
+## Contributing
+
+We welcome contributions to enhance ElimuChain! Here’s how you can help:
+
+1. Fork the repository.
+2. Create a feature branch:
+   ```bash
+   git checkout -b feature/AmazingFeature
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m "Add AmazingFeature"
+   ```
+4. Push to your branch:
+   ```bash
+   git push origin feature/AmazingFeature
+   ```
+5. Open a pull request.
+
+Please ensure your code adheres to our standards and passes all tests. Refer to our [Contribution Guidelines](CONTRIBUTING.md) for more information.
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE.md](LICENSE.md) for details.
