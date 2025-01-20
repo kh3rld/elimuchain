@@ -1,14 +1,14 @@
 :root {
-  --primary-color: #6b21a8;       /* Deep purple */
-  --secondary-color: #0ea5e9;     /* Electric blue */
-  --accent-color: #10b981;        /* Emerald green */
-  --background-dark: #020617;     /* Deep space black */
+  --primary-color: #2563eb;     /* Royal blue */
+  --secondary-color: #7c3aed;   /* Deep purple */
+  --accent-color: #06b6d4;      /* Cyan */
+  --background-dark: #0f172a;   /* Navy black */
   --text-light: #f8fafc;
   --glass-bg: rgba(255, 255, 255, 0.03);
   --success-color: #22c55e;
   --error-color: #ef4444;
-  --gradient-start: #6b21a8;
-  --gradient-end: #0ea5e9;
+  --gradient-start: var(--primary-color);
+  --gradient-end: var(--secondary-color);
   --neon-glow: 0 0 20px var(--accent-color);
 }
 
@@ -61,10 +61,11 @@ header {
   text-align: center;
   position: relative;
   z-index: 1;
+  padding: 4rem 2rem;
 }
 
 .brand-name {
-  font-size: 5.5rem;
+  font-size: 6rem;
   font-weight: 800;
   background: linear-gradient(
     45deg,
@@ -75,20 +76,27 @@ header {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradientFlow 8s ease infinite;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   letter-spacing: -2px;
+  font-family: 'Space Grotesk', sans-serif;
 }
 
-.hero h1 {
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h2 {
   font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-light);
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
   margin-bottom: 3rem;
-  background: linear-gradient(
-    45deg,
-    var(--accent-color),
-    var(--secondary-color)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--text-light);
   opacity: 0.9;
 }
 
@@ -205,13 +213,69 @@ section:hover {
   background: rgba(255, 255, 255, 0.05);
 }
 
-.metrics-container,
-.metric,
-.circular-progress,
-.progress-bg,
-.progress-bar,
-.metric-value {
-  display: none;
+.waiting-list-form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.waiting-list-form h3 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--accent-color);
+}
+
+.benefits-section {
+  padding: 4rem 2rem;
+  margin: 4rem auto;
+  max-width: 1200px;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.benefit-card {
+  padding: 2rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--accent-color);
+}
+
+.benefit-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1.5rem;
+  color: var(--accent-color);
+}
+
+.benefit-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--text-light);
+}
+
+.benefit-card p {
+  color: var(--text-light);
+  opacity: 0.8;
+}
+
+.privacy-note {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: var(--text-light);
+  opacity: 0.7;
 }
 
 .support-section {
@@ -440,6 +504,22 @@ section:hover {
 }
 
 @media (max-width: 768px) {
+  .brand-name {
+    font-size: 4rem;
+  }
+
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .waiting-list-form {
+    padding: 1.5rem;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+  
   .support-section {
     padding: 2rem;
     margin: 2rem 1rem;
