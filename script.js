@@ -85,9 +85,30 @@ document
     const form = this;
     const button = form.querySelector("button");
 
+    const scriptURL =
+      "https://script.google.com/macros/s/AKfycbwCVxvfngyURqP1Ln9_ISRDVzrCEPtf3nDkHt_bft_AWNWbjjk-aM85G9ZZ_oVOLR6n/exec";
+
     // Add loading state
     button.disabled = true;
     button.classList.add("loading");
+
+    fetch(scriptURL, { method: "POST", body: new FormData(form) })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Submission failed");
+        }
+        return response.json();
+      })
+      .catch((error) => {
+        console.error("Error!", error.message);
+        // Show user-friendly error message
+        const errorMsg = document.createElement("div");
+        errorMsg.classList.add("error-message");
+        errorMsg.textContent =
+          "Oops! Something went wrong. Please try again later.";
+        form.appendChild(errorMsg);
+        setTimeout(() => errorMsg.remove(), 5000); 
+      });
 
     // Simulate form submission
     setTimeout(() => {
@@ -117,27 +138,6 @@ document
       }, 1000);
     }, 1500);
   });
-
-// Enhanced testimonial carousel
-let currentTestimonial = 0;
-const testimonials = document.querySelectorAll(".testimonial");
-
-function rotateTestimonials() {
-  testimonials[currentTestimonial].classList.remove("active");
-  testimonials[currentTestimonial].classList.add("fade-out");
-
-  setTimeout(() => {
-    testimonials[currentTestimonial].classList.remove("fade-out");
-    currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-    testimonials[currentTestimonial].classList.add("active", "fade-in");
-
-    setTimeout(() => {
-      testimonials[currentTestimonial].classList.remove("fade-in");
-    }, 500);
-  }, 500);
-}
-
-setInterval(rotateTestimonials, 5000);
 
 // Initialize animations
 document.addEventListener("DOMContentLoaded", () => {
