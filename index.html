@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -25,12 +26,13 @@
 
           <div class="waiting-list-form glassmorphism">
             <h3>Get Priority Access</h3>
-            <form id="waitlist-form" class="neo-form">
+            <form action="" method="POST" id="waitlist-form" class="neo-form">
               <div class="form-group">
                 <input
                   type="text"
                   class="neo-input"
                   id="name"
+                  name="your-name"
                   placeholder="Your Name"
                   required
                 />
@@ -40,12 +42,13 @@
                   type="email"
                   class="neo-input"
                   id="email"
+                  name="your-email"
                   placeholder="Your Email"
                   required
                 />
               </div>
               <div class="form-group">
-                <select class="neo-select" id="role" required>
+                <select class="neo-select" id="role" required, name="role">
                   <option value="">Select Your Role</option>
                   <option value="institution">Educational Institution</option>
                   <option value="student">Student/Graduate</option>
@@ -143,10 +146,7 @@
                 decentralized systems. Previously worked on major DeFi projects.
               </p>
               <div class="member-links">
-                <a
-                  href="https://github.com/kh3rld"
-                  aria-label="GitHub Profile"
-                >
+                <a href="https://github.com/kh3rld" aria-label="GitHub Profile">
                   <svg
                     width="24"
                     height="24"
